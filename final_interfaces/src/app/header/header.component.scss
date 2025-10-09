@@ -1,0 +1,98 @@
+@use "../../styles.scss" as *;
+
+header {
+  background-color: $primary;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 60px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.explore-premium {
+  background-color: $light-black;
+  border: black 1px solid;
+  color: $white;
+  cursor: pointer;
+  width: 11rem;
+  height: 2.25rem;
+  border-radius: 0.25rem;
+  font-weight: bold;
+}
+
+.explore-premium:hover {
+  background-color: $black;
+}
+
+.search-bar {
+  border: black 3px solid;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100rem;
+  background-color: $lighter-secondary-1;
+  padding: 0.25rem 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+
+  input {
+    border: none;
+    outline: none;
+    background: transparent;
+    color: $white;
+    font-size: 1rem;
+    padding: 0.5rem 0rem;
+    width: 15rem;
+
+    &::placeholder {
+      color: $grey;
+      opacity: 1;
+    }
+  }
+}
+
+.logo {
+  margin-left: 1rem;
+  margin-top: 0.25rem;
+}
+
+.user-info {
+  margin-right: 1rem;
+}
+
+.logo:hover {
+  cursor: pointer;
+}
+
+.user-info {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.login {
+  background-color: $secondary-1;
+}
+
+.login:hover {
+  background-color: $light-secondary-1;
+}
+
+.notification {
+  color: $white;
+}
+
+.notification:hover {
+  color: $grey;
+}
+
+i {
+  cursor: pointer;
+}
+
+.profile-picture {
+  border-radius: 50%;
+  border: black 1px solid;
+}
