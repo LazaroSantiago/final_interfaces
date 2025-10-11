@@ -39,4 +39,17 @@ button {
   width: 5rem;
   background-color: $primary;
   color: $white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+  background-color: $lighter-primary;
+}
+
+li {
+  list-style: none;
+}
+
+i {
+  color: $white;
 }

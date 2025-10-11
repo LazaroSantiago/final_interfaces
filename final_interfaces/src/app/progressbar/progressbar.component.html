@@ -1,0 +1,35 @@
+<nav>
+    <div class="controls">
+        <i class="fas fa-backward fa-lg"></i>
+        <i [ngClass]="!songPlaying ? 'fa fa-play fa-lg' : 'fa fa-pause fa-lg'" (click)="togglePlay()"></i>
+        <i class="fas fa-forward fa-lg"></i>
+    </div>
+
+    <div class="volume-control">
+        <i [ngClass]="soundMute || volume == 0 ? 'fas fa-volume-mute fa-lg' : 'fas fa-volume-up fa-lg'"
+            (click)="toggleMute()"></i>
+        <input type="range" min="0" max="100" [value]="volume * 100" class="volume-slider"
+            (input)="changeVolume($event)">
+    </div>
+
+    <div class="progress-container">
+        <span>{{ formatTime(currentTime) }}</span>
+        <input type="range" min="0" [max]="duration" [value]="currentTime" class="progress-bar"
+            (input)="seekAudio($event)">
+        <span>{{ formatTime(duration) }}</span>
+        <i [ngClass]="(heartHovered || heartActive) ? 'fas fa-heart fa-lg heart-icon' : 'far fa-heart fa-lg heart-icon'"
+            (mouseenter)="heartHovered = true" (mouseleave)="heartHovered = false"
+            (click)="heartActive = !heartActive"></i>
+    </div>
+
+    <div class="rating">
+        @for (star of stars; track star; let i = $index) {
+        <i class="fa-star fa-lg" [ngClass]="{
+        'fas': i < hoverRating || i < selectedRating,
+        'far': i >= hoverRating && i >= selectedRating
+      }" (mouseenter)="setHover(i + 1)" (mouseleave)="clearHover()" (click)="toggleRating(i + 1)"></i>
+        }
+    </div>
+    <audio #audioRef src="example.wav" (timeupdate)="onTimeUpdate()" (loadedmetadata)="onLoadedMetadata()"></audio>
+
+</nav>

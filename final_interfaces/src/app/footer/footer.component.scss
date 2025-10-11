@@ -1,0 +1,24 @@
+@use "../../styles.scss" as *;
+
+footer {
+  background-color: $lighter-primary;
+  color: $white;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  grid-area: footer;
+  gap: 3rem;
+  padding: 2rem;
+  transform: translateY(-200px); // Move footer 60px higher on the Y axis
+}
+
+p,
+h4 {
+  cursor: default;
+}
+
+.logo {
+  cursor: pointer;
+}

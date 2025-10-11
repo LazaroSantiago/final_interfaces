@@ -1,0 +1,49 @@
+@use "../styles.scss" as *;
+
+:host {
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "sidebar main"
+    "sidebar footer";
+  grid-template-columns: 13rem 1fr;
+  grid-template-rows: 60px 1fr 60px;
+  min-height: 100vh;
+  width: 100vw;
+}
+
+/* Header */
+app-header {
+  grid-area: header;
+  width: 100%;
+  z-index: 10;
+}
+
+/* Sidebar */
+app-sidebar {
+  grid-area: sidebar;
+  height: 100%;
+}
+
+/* Main content placeholder */
+:host ::ng-deep router-outlet,
+:host ::ng-deep .main-content {
+  grid-area: main;
+  min-height: 0;
+  min-width: 0;
+}
+
+app-footer {
+  grid-area: footer;
+  width: 100%;
+}
+
+app-progressbar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  z-index: 100;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.08);
+}
