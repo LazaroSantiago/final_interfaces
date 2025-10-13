@@ -20,7 +20,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 30px; /* 👈 ensures same horizontal space */
+  width: 30px; /* ensures same horizontal space */
   height: 30px; /* optional if you want square area */
   text-align: center;
 }
@@ -124,7 +124,7 @@ nav {
   }
 
   i.fas {
-    color: gold;
+    color: $star;
     transform: scale(1.1);
   }
 

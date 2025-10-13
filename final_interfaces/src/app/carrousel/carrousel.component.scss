@@ -1,0 +1,98 @@
+@use "../../styles.scss" as *;
+
+main {
+  background-color: $secondary-2;
+  margin-bottom: 200px;
+  padding-bottom: 100px;
+  position: relative;
+}
+
+.carousel-section {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 0 2rem;
+}
+
+.carousel-container {
+  position: relative;
+  overflow-x: auto;
+  padding: 1rem 0;
+  flex: 1;
+
+  // Hide scrollbar but keep functionality
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.row {
+  display: flex;
+  gap: 1rem;
+  padding: 0 1rem;
+  width: max-content;
+  transition: scroll-behavior 0.3s ease;
+}
+
+.carousel-arrow {
+  background: rgba($white, 0.1);
+  border: none;
+  color: $white;
+  font-size: 1.5rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  position: absolute;
+  z-index: 10;
+
+  &:hover:not(:disabled) {
+    background: rgba($white, 0.2);
+    transform: scale(1.1);
+  }
+
+  &:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+
+  &--left {
+    left: 0.5rem;
+  }
+
+  &--right {
+    right: 0.5rem;
+  }
+
+  // Hide class for arrows
+  &.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
+h1 {
+  padding: 1rem;
+  padding-bottom: 0;
+  font-size: 2.5rem;
+  color: $white;
+  margin: 0;
+}
+
+// Hide arrows on mobile
+@media (max-width: 768px) {
+  .carousel-arrow {
+    display: none;
+  }
+
+  .carousel-section {
+    padding: 0 1rem;
+  }
+}
