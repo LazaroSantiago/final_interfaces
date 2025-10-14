@@ -50,7 +50,7 @@ main {
   justify-content: center;
   transition: all 0.3s ease;
   position: absolute;
-  z-index: 10;
+  z-index: 1;
 
   &:hover:not(:disabled) {
     background: rgba($white, 0.2);

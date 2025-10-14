@@ -1,53 +1,60 @@
-import { Component, ViewChild, ElementRef } from '@angular/core';
-import { NgClass } from '@angular/common';
+import { Component, ElementRef, ViewChild } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-progressbar',
   templateUrl: './progressbar.component.html',
   styleUrls: ['./progressbar.component.scss'],
-  imports: [NgClass]
+  imports: [CommonModule]
 })
 export class ProgressbarComponent {
   @ViewChild('audioRef') audioRef!: ElementRef<HTMLAudioElement>;
+
+  // Audio controls
+  songPlaying = false;
+  soundMute = false;
+  volume = 1;
   currentTime = 0;
   duration = 0;
-  volume = 0.5;
+
+  // Heart icon
   heartHovered = false;
   heartActive = false;
-  soundMute = false;
-  songPlaying = false;
+
+  // Rating system
   stars = [1, 2, 3, 4, 5];
-  hoverRating = 0;
   selectedRating = 0;
+  hoverRating = 0;
+  hasRated = false; // Track if user has rated current song
 
-  ngAfterViewInit() {
-    const audio = this.audioRef.nativeElement;
-    audio.volume = this.volume;
-  }
-
-  changeVolume(event: Event) {
-    const input = event.target as HTMLInputElement;
-    this.volume = +input.value / 100;
-    const audio = this.audioRef.nativeElement;
-
-    audio.volume = this.soundMute ? 0 : this.volume;
-  }
-
-  setHover(rating: number) {
-    this.hoverRating = rating;
-  }
-
-  clearHover() {
-    this.hoverRating = 0;
-  }
-
-  toggleRating(rating: number) {
-    // if clicking the same star again, reset rating to 0
-    if (this.selectedRating === rating) {
-      this.selectedRating = 0;
+  // Audio control methods
+  togglePlay() {
+    this.songPlaying = !this.songPlaying;
+    if (this.songPlaying) {
+      this.audioRef.nativeElement.play();
     } else {
-      this.selectedRating = rating;
+      this.audioRef.nativeElement.pause();
     }
+  }
+
+  toggleMute() {
+    this.soundMute = !this.soundMute;
+    this.audioRef.nativeElement.muted = this.soundMute;
+  }
+
+  changeVolume(event: any) {
+    this.volume = event.target.value / 100;
+    this.audioRef.nativeElement.volume = this.volume;
+    // Auto-unmute when volume is adjusted
+    if (this.soundMute && this.volume > 0) {
+      this.soundMute = false;
+      this.audioRef.nativeElement.muted = false;
+    }
+  }
+
+  seekAudio(event: any) {
+    this.currentTime = event.target.value;
+    this.audioRef.nativeElement.currentTime = this.currentTime;
   }
 
   onTimeUpdate() {
@@ -58,41 +65,42 @@ export class ProgressbarComponent {
     this.duration = this.audioRef.nativeElement.duration;
   }
 
-  seekAudio(event: any) {
-    this.audioRef.nativeElement.currentTime = event.target.value;
+  formatTime(seconds: number): string {
+    const mins = Math.floor(seconds / 60);
+    const secs = Math.floor(seconds % 60);
+    return `${mins}:${secs.toString().padStart(2, '0')}`;
   }
 
-  setVolume(event: any) {
-    this.volume = event.target.value;
-    this.audioRef.nativeElement.volume = this.volume / 100;
-  }
-
-  togglePlay() {
-    const audio = this.audioRef.nativeElement;
-    this.songPlaying = !this.songPlaying;
-    if (audio.paused) {
-      audio.play();
-    } else {
-      audio.pause();
+  // Rating methods
+  setHover(rating: number) {
+    if (!this.hasRated) {
+      this.hoverRating = rating;
     }
   }
 
-  toggleMute() {
-    this.soundMute = !this.soundMute;
-    this.audioRef.nativeElement.muted = this.soundMute;
+  clearHover() {
+    this.hoverRating = 0;
   }
 
-  seekBackward() {
-    this.audioRef.nativeElement.currentTime = Math.max(0, this.audioRef.nativeElement.currentTime - 5);
+  toggleRating(rating: number) {
+    // If clicking the same rating, toggle it off
+    if (this.selectedRating === rating) {
+      this.selectedRating = 0;
+      this.hasRated = false;
+    } else {
+      this.selectedRating = rating;
+      this.hasRated = true;
+    }
+    this.hoverRating = 0; // Clear hover after click
+
+    // Emit rating change if needed
+    // this.ratingChange.emit(this.selectedRating);
   }
 
-  seekForward() {
-    this.audioRef.nativeElement.currentTime = Math.min(this.duration, this.audioRef.nativeElement.currentTime + 5);
-  }
-
-  formatTime(time: number): string {
-    const minutes = Math.floor(time / 60);
-    const seconds = Math.floor(time % 60).toString().padStart(2, '0');
-    return `${minutes}:${seconds}`;
+  // Helper method to check if star should have idle animation
+  shouldAnimateStar(starIndex: number): boolean {
+    return !this.hasRated &&
+      this.selectedRating === 0 &&
+      this.hoverRating === 0;
   }
 }

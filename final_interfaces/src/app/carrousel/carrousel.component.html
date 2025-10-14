@@ -1,4 +1,4 @@
-<h1>For You</h1>
+<h1>{{title}}</h1>
 <div class="carousel-section">
     <button class="carousel-arrow carousel-arrow--left" (click)="scrollToLeft()" [class.hidden]="isAtStart">
         <i class="fas fa-chevron-left"></i>
@@ -6,14 +6,11 @@
 
     <div class="carousel-container" #carouselContainer (scroll)="checkScrollPosition()">
         <ul class="row">
-            <app-card></app-card>
-            <app-card></app-card>
-            <app-card></app-card>
-            <app-card></app-card>
-            <app-card></app-card>
-            <app-card></app-card>
-            <app-card></app-card>
-            <app-card></app-card>
+            @for (item of items; track item) {
+            <app-card [title]="item.title" [artist]="item.artist" [collection]="item.collection"
+                [coverart]="item.coverart" [year]="item.year" [rating]="item.rating"
+                [isShareable]="item.isShareable || false" [heartActive]="item.heartActive || false"></app-card>
+            }
         </ul>
     </div>
 

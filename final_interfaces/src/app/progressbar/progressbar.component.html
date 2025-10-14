@@ -22,14 +22,14 @@
             (click)="heartActive = !heartActive"></i>
     </div>
 
-    <div class="rating">
+    <div class="rating" [class.rated]="hasRated">
         @for (star of stars; track star; let i = $index) {
         <i class="fa-star fa-lg" [ngClass]="{
-        'fas': i < hoverRating || i < selectedRating,
-        'far': i >= hoverRating && i >= selectedRating
-      }" (mouseenter)="setHover(i + 1)" (mouseleave)="clearHover()" (click)="toggleRating(i + 1)"></i>
+          'fas': i < hoverRating || i < selectedRating,
+          'far': i >= hoverRating && i >= selectedRating,
+          'idle-animation': shouldAnimateStar(i)
+        }" (mouseenter)="setHover(i + 1)" (mouseleave)="clearHover()" (click)="toggleRating(i + 1)"></i>
         }
     </div>
     <audio #audioRef src="example.wav" (timeupdate)="onTimeUpdate()" (loadedmetadata)="onLoadedMetadata()"></audio>
-
 </nav>

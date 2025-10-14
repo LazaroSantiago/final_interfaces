@@ -8,5 +8,8 @@ import { PremiumCardComponent } from '../premium-card/premium-card.component';
   styleUrl: './premium.component.scss'
 })
 export class PremiumComponent {
-
+  parentText1: string = "1 Premium Account"
+  parentText2: string = "2 Premium Account"
+  parentText3: string = "6 Premium Account"
+  parentText4: string = "6 Premium Account"
 }

@@ -1,5 +1,6 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { CardComponent } from '../card/card.component';
+import { Track } from '../track';
 
 @Component({
   selector: 'app-carrousel',
@@ -10,11 +11,17 @@ import { CardComponent } from '../card/card.component';
 export class CarrouselComponent {
   @ViewChild('carouselContainer') carouselContainer!: ElementRef<HTMLDivElement>;
 
+  @Input()
+  title = '';
+  @Input()
+  items: Track[] = [];
+
   startX = 0;
   scrollLeft = 0;
   isAtStart = true;
   isAtEnd = false;
   private resizeObserver!: ResizeObserver;
+  private scrollAmount = 500;
 
   ngAfterViewInit() {
     this.checkScrollPosition();
@@ -35,25 +42,22 @@ export class CarrouselComponent {
   }
 
   scrollToLeft() {
-    const scrollAmount = 300;
     this.carouselContainer.nativeElement.scrollBy({
-      left: -scrollAmount,
+      left: -this.scrollAmount,
       behavior: 'smooth'
     });
 
     // Check position after scroll completes
-    setTimeout(() => this.checkScrollPosition(), 300);
+    setTimeout(() => this.checkScrollPosition(), this.scrollAmount);
   }
 
   scrollRight() {
-    const scrollAmount = 300;
     this.carouselContainer.nativeElement.scrollBy({
-      left: scrollAmount,
+      left: this.scrollAmount,
       behavior: 'smooth'
     });
 
-    // Check position after scroll completes
-    setTimeout(() => this.checkScrollPosition(), 300);
+    setTimeout(() => this.checkScrollPosition(), this.scrollAmount);
   }
 
   checkScrollPosition() {
