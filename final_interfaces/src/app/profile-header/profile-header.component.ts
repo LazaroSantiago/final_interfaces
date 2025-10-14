@@ -9,4 +9,8 @@ import { Component, Input } from '@angular/core';
 export class ProfileHeaderComponent {
   @Input()
   title: string = '';
+  @Input()
+  artist?: string = '';
+  @Input()
+  imgSrc?: string = 'ellipse-2.png';
 }

@@ -1,1 +1,9 @@
-<p>song-detail works!</p>
+<app-profile-header [imgSrc]="'hotrats.jpg'" [title]="song.title" [artist]="song.artist"></app-profile-header>
+
+<main>
+
+    <h1>Lyrics</h1>
+    <div class="lyrics-container">
+        <p class="lyrics">{{song.lyrics}}</p>
+    </div>
+</main>
