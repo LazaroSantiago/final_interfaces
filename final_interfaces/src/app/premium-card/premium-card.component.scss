@@ -1,0 +1,84 @@
+@use "../../styles.scss" as *;
+
+.premium-card {
+  aspect-ratio: 43 / 55;
+  background-color: $primary;
+  color: $white;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: left; // Left align everything except button
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.premium-card:hover {
+  transform: translateY(-5px);
+}
+
+// Separator bar
+.separator {
+  height: 3px;
+  background-color: rgba($white, 0.3); // Subtle white line
+  margin: 1rem 0;
+  width: 100%;
+}
+
+// Price styling
+.price {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin: 0.5rem 0 1rem 0;
+}
+
+// List styling
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+
+  li {
+    padding: 0.25rem 0;
+    position: relative;
+    padding-left: 1rem;
+    font-weight: bold;
+
+    &::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: $light-accent;
+    }
+  }
+}
+
+// Headings
+h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.75rem;
+  font-family: "Oswald", sans-serif;
+  font-weight: 500;
+}
+
+h4 {
+  margin: 0 0 0.5rem 0;
+  font-size: 2rem;
+  color: $light-accent;
+}
+
+button {
+  background-color: $light-accent;
+  width: 14rem;
+  color: $black;
+  font-weight: bold;
+  margin-top: 1rem;
+  align-self: center; // This centers the button
+}
+
+button:hover {
+  background-color: darken($light-accent, 10%);
+}

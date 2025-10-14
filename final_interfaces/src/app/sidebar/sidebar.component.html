@@ -2,16 +2,16 @@
     <nav>
         <div>
             <div class="row">
-                <i class="fas fa-home"></i>
-                <li><a href="#">Home</a></li>
+                <i class="fas fa-home" (click)="navigateToHome()"></i>
+                <li><a (click)="navigateToHome()">Home</a></li>
             </div>
             <div class="row">
                 <i class="fas fa-map"></i>
-                <li><a href="#">Explore</a></li>
+                <li><a>Explore</a></li>
             </div>
             <div class="row">
                 <i class="fas fa-music"></i>
-                <li><a href="#">Playlists</a></li>
+                <li><a>Playlists</a></li>
             </div>
         </div>
         <button>Create Playlist</button>

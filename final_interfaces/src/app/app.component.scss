@@ -31,17 +31,14 @@ router-outlet {
   min-height: 0;
   min-width: 0;
 
-  // Hide the router-outlet element itself, let the routed component take over
   display: contents;
 }
 
-/* Style the actual routed component */
 router-outlet + * {
   grid-area: main;
   min-height: 0;
   min-width: 0;
-  overflow: auto; // Add scrolling if content overflows
-  background-color: $secondary-2; // Match your landing background
+  background-color: $secondary-2;
 }
 
 app-footer {

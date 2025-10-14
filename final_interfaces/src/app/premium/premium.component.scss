@@ -1,4 +1,22 @@
-main{
-    width: 100%;
-    height: 100%;
+main {
+  width: 100%;
+  height: fit-content;
+  margin-bottom: 300px;
+  min-height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem;
+  box-sizing: border-box;
+  align-content: flex-start;
+}
+
+app-premium-card {
+  flex: 0 0 auto;
+  width: calc(33.333% - 2rem);
+}
+
+app-premium-card:nth-child(3n + 1):nth-child(n + 4) {
+  width: calc(33.333% - 2rem);
 }

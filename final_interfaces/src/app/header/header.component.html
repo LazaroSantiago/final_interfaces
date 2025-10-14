@@ -1,6 +1,6 @@
 <header>
 
-    <div class="logo">
+    <div class="logo" (click)="navigateToHome()">
         <img src="S5.svg" alt="S5">
     </div>
 
@@ -11,7 +11,7 @@
 
     <!-- if user is logged in, show this -->
     <div class="user-info">
-        <button class="explore-premium">
+        <button class="explore-premium" (click)="navigateToPremium()">
             Explore Premium
         </button>
 

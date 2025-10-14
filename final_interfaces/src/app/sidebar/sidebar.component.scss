@@ -20,6 +20,11 @@ button {
 a {
   color: $white;
   text-decoration: none;
+  cursor: pointer;
+}
+
+i {
+  cursor: pointer;
 }
 
 nav {
@@ -35,4 +40,23 @@ nav {
   align-items: center;
   font-weight: bold;
   font-size: 1.75rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  width: 100%;
+  box-sizing: border-box;
+
+  &:hover {
+    background-color: rgba($light-accent, 0.1); // Subtle background
+    color: $light-accent; // Color change for both text and icon
+
+    i {
+      color: $light-accent; // Ensure icon changes color too
+    }
+
+    a {
+      color: $light-accent; // Ensure link changes color too
+    }
+  }
 }
