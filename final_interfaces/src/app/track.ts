@@ -8,4 +8,5 @@ export interface Track {
     isShareable?: boolean;
     heartActive?: boolean;
     isPodcast?: boolean;
+    isPlaylist?: boolean;
 }

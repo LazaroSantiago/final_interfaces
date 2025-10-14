@@ -39,6 +39,10 @@ export class HeaderComponent {
     this.showProfileMenu = false;
   }
 
+  navigateToSearch() {
+    this.router.navigate(['/search']);
+  }
+
   // Close profile menu when clicking outside
   @HostListener('document:click', ['$event'])
   onDocumentClick(event: MouseEvent) {

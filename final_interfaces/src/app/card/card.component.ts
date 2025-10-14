@@ -18,6 +18,7 @@ export class CardComponent {
   @Input() rating: number = 0;
   @Input() heartActive: boolean = false;
   @Input() isPodcast: boolean = false;
+  @Input() isPlaylist: boolean = false;
   @Output() ratingChange = new EventEmitter<number>();
 
   constructor(private router: Router) { }
