@@ -17,6 +17,7 @@ export class CardComponent {
   @Input() isShareable: boolean = false;
   @Input() rating: number = 0;
   @Input() heartActive: boolean = false;
+  @Input() isPodcast: boolean = false;
   @Output() ratingChange = new EventEmitter<number>();
 
   constructor(private router: Router) { }
@@ -44,5 +45,9 @@ export class CardComponent {
 
   navigateToPlaylist() {
     this.router.navigate(['/playlist']);
+  }
+
+  navigateToPodcast() {
+    this.router.navigate(['/podcast']);
   }
 }

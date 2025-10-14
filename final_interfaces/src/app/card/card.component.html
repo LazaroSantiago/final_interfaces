@@ -23,9 +23,13 @@
     <div class="card-content">
 
         <div class="card-info">
-            <h4 (click)="navigateToSongDetail()">{{title}} </h4>
+            @if (isPodcast) {
+            <h4 (click)="navigateToPodcast()" class="clickable-title">{{title}} </h4>
+            } @else {
+            <h4 (click)="navigateToSongDetail()" class="clickable-title">{{title}} </h4>
+            }
             <h5>{{artist}}</h5>
-            <h5 (click)="navigateToPlaylist()">{{collection}}</h5>
+            <h5 (click)="navigateToPlaylist()" class="clickable-collection">{{collection}}</h5>
             <p>{{year}}</p>
         </div>
 

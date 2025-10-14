@@ -9,22 +9,3 @@ main {
   height: 100%;
   overflow-y: auto;
 }
-
-.profile {
-  display: flex;
-  margin-top: 1rem;
-  align-items: center;
-}
-
-img {
-  width: 10rem;
-  aspect-ratio: 1/1;
-  border-radius: 50%;
-  margin-left: 2rem;
-}
-
-h1 {
-  font-size: 2.5rem;
-  margin-left: 1rem;
-  color: $white;
-}

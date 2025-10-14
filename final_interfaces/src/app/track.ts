@@ -7,4 +7,5 @@ export interface Track {
     rating: number;
     isShareable?: boolean;
     heartActive?: boolean;
+    isPodcast?: boolean;
 }

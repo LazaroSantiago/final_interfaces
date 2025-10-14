@@ -9,7 +9,8 @@
             @for (item of items; track item) {
             <app-card [title]="item.title" [artist]="item.artist" [collection]="item.collection"
                 [coverart]="item.coverart" [year]="item.year" [rating]="item.rating"
-                [isShareable]="item.isShareable || false" [heartActive]="item.heartActive || false"></app-card>
+                [isShareable]="item.isShareable || false" [heartActive]="item.heartActive || false"
+                [isPodcast]="item.isPodcast || false"></app-card>
             }
         </ul>
     </div>

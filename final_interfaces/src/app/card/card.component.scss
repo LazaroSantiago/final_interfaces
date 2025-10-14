@@ -143,3 +143,14 @@ p {
     }
   }
 }
+.clickable-title,
+.clickable-collection {
+  cursor: pointer;
+  transition: text-decoration 0.2s ease;
+
+  &:hover {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    color: $light-accent;
+  }
+}

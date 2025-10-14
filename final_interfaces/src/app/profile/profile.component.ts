@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { CarrouselComponent } from "../carrousel/carrousel.component";
 import { Track } from '../track';
+import { ProfileHeaderComponent } from "../profile-header/profile-header.component";
 
 @Component({
   selector: 'app-profile',
-  imports: [CarrouselComponent],
+  imports: [CarrouselComponent, ProfileHeaderComponent],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.scss'
 })

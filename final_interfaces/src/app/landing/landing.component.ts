@@ -30,7 +30,7 @@ export class LandingComponent {
   ]
 
   row4: Track[] = [
-    { title: 'Abroad in Japan', artist: 'Chris Broad', collection: 'Podcast', coverart: 'abroad.png', year: 2020, rating: 4 },
-    { title: 'Trash Taste', artist: 'Trash Taste', collection: 'Podcast', coverart: 'trashtaste.jpg', year: 2020, rating: 4 },
+    { title: 'Abroad in Japan', artist: 'Chris Broad', collection: 'Podcast', coverart: 'abroad.png', year: 2020, rating: 4, isPodcast: true },
+    { title: 'Trash Taste', artist: 'Trash Taste', collection: 'Podcast', coverart: 'trashtaste.jpg', year: 2020, rating: 4, isPodcast: true },
   ]
 }
