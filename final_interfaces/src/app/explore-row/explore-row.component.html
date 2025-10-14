@@ -1,0 +1,25 @@
+<h1>Genre</h1>
+<div class="carousel-section">
+    <button class="carousel-arrow carousel-arrow--left" (click)="scrollLeft()" [class.hidden]="isAtStart">
+        <i class="fas fa-chevron-left"></i>
+    </button>
+
+    <div class="carousel-container" #carouselContainer (scroll)="checkScrollPosition()">
+        <ul class="row">
+            <button>Heavy Metal</button>
+            <button>Grindcore</button>
+            <button>Rock</button>
+            <button>Jazz</button>
+            <button>Classical</button>
+            <button>Electronic</button>
+            <button>Hip Hop</button>
+            <button>Pop</button>
+            <button>Country</button>
+            <button>Blues</button>
+        </ul>
+    </div>
+
+    <button class="carousel-arrow carousel-arrow--right" (click)="scrollRight()" [class.hidden]="isAtEnd">
+        <i class="fas fa-chevron-right"></i>
+    </button>
+</div>

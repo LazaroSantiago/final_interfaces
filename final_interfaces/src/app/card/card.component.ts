@@ -14,8 +14,9 @@ export class CardComponent {
   hoverRating = 0;
 
   setRating(stars: number) {
-    this.rating = stars;
-    // You can add additional logic here, like saving to a service
-    console.log(`Rating set to: ${stars} stars`);
+    if (this.rating === stars)
+      this.rating = 0;
+    else
+      this.rating = stars;
   }
 }

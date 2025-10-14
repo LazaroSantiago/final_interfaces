@@ -10,7 +10,6 @@ import { CardComponent } from '../card/card.component';
 export class CarrouselComponent {
   @ViewChild('carouselContainer') carouselContainer!: ElementRef<HTMLDivElement>;
 
-  isDragging = false;
   startX = 0;
   scrollLeft = 0;
   isAtStart = true;

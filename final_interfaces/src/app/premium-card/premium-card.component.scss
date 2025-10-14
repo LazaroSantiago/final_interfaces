@@ -6,7 +6,7 @@
   color: $white;
   border-radius: 10px;
   padding: 20px;
-  text-align: left; // Left align everything except button
+  text-align: left;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
   width: 100%;
@@ -23,7 +23,7 @@
 // Separator bar
 .separator {
   height: 3px;
-  background-color: rgba($white, 0.3); // Subtle white line
+  background-color: rgba($white, 0.3);
   margin: 1rem 0;
   width: 100%;
 }
@@ -76,7 +76,7 @@ button {
   color: $black;
   font-weight: bold;
   margin-top: 1rem;
-  align-self: center; // This centers the button
+  align-self: center;
 }
 
 button:hover {

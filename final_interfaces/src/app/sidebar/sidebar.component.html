@@ -1,15 +1,15 @@
 <aside class="sidebar">
     <nav>
         <div>
-            <div class="row">
-                <i class="fas fa-home" (click)="navigateToHome()"></i>
-                <li><a (click)="navigateToHome()">Home</a></li>
+            <div class="row" (click)="navigateToHome()">
+                <i class="fas fa-home"></i>
+                <li><a>Home</a></li>
             </div>
-            <div class="row">
+            <div class="row" (click)="navigateToExplore()">
                 <i class="fas fa-map"></i>
                 <li><a>Explore</a></li>
             </div>
-            <div class="row">
+            <div class="row" (click)="navigateToProfile()">
                 <i class="fas fa-music"></i>
                 <li><a>Playlists</a></li>
             </div>

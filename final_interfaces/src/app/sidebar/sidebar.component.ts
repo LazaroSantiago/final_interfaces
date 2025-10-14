@@ -13,4 +13,12 @@ export class SidebarComponent {
   navigateToHome() {
     this.router.navigate(['/home']);
   }
+
+  navigateToExplore() {
+    this.router.navigate(['/explore']);
+  }
+
+  navigateToProfile() {
+    this.router.navigate(['/profile']);
+  }
 }

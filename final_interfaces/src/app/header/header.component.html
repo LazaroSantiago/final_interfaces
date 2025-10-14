@@ -11,16 +11,34 @@
 
     <!-- if user is logged in, show this -->
     <div class="user-info">
+        @if (isLoggedIn) {
         <button class="explore-premium" (click)="navigateToPremium()">
             Explore Premium
         </button>
 
         <i class="fas fa-bell notification fa-2xl"></i>
 
-        <button class="login">
+        <div class="profile-container">
+            <img class="profile-picture" src="Ellipse 1.png" alt="" (click)="toggleProfileMenu()">
+
+            @if (showProfileMenu) {
+            <div class="profile-menu">
+                <button class="logout-btn" (click)="navigateToProfile()">
+                    <i class="fas fa-user"></i>
+                    Profile
+                </button>
+                <button class="logout-btn" (click)="logout()">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Logout
+                </button>
+            </div>
+            }
+        </div>
+
+        } @else {
+        <button class="login" (click)="login()">
             Login
         </button>
-
-        <img class="profile-picture" src="Ellipse 1.png" alt="">
+        }
     </div>
 </header>
