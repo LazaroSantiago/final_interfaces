@@ -1,1 +1,79 @@
-<p>playlist works!</p>
+<app-profile-header [title]="'Jpop Mix'" [artist]="'Pekoe'" [imgSrc]="'jpop.png'"></app-profile-header>
+
+<div class="playlist-container">
+    <table class="playlist-table">
+        <thead>
+            <tr>
+                <th class="index-col">#</th>
+                <th class="title-col">Title</th>
+                <th class="artist-col">Artist</th>
+                <th class="rating-col">Rating</th>
+                <th class="date-col">Date Added</th>
+                <th class="time-col">Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (track of tracks; track track.id; let i = $index) {
+            <tr class="track-row">
+                <td class="index-col">{{ i + 1 }}</td>
+                <td class="title-col">
+                    <div class="track-info">
+                        <div class="track-details">
+                            <span class="track-title">{{ track.title }}</span>
+                            <span class="track-album">{{ track.album }}</span>
+                        </div>
+                    </div>
+                </td>
+                <td class="artist-col">{{ track.artist }}</td>
+                <td class="rating-col">
+                    <div class="stars">
+                        @for (star of [1,2,3,4,5]; track star) {
+                        <i class="fas fa-star" [class.active]="star <= track.rating"></i>
+                        }
+                    </div>
+                </td>
+                <td class="date-col">{{ track.dateAdded }}</td>
+                <td class="time-col">{{ track.duration }}</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+
+    <!-- Comment Section -->
+    <div class="comment-section">
+        <h3 class="comment-title">Comments</h3>
+
+        <!-- Existing Comments -->
+        <div class="comments-list">
+            @for (comment of comments; track comment.id) {
+            <div class="comment">
+                <div class="comment-header">
+                    <img [src]="'Ellipse 1.png'" [alt]="comment.author" class="comment-avatar">
+                    <div class="comment-author-info">
+                        <span class="comment-author">{{ comment.author }}</span>
+                        <span class="comment-date">{{ comment.date }}</span>
+                    </div>
+                </div>
+                <p class="comment-text">{{ comment.text }}</p>
+            </div>
+            }
+        </div>
+
+        <!-- Add Comment Form -->
+        <div class="add-comment">
+            <div class="comment-input-container">
+                <img src="Ellipse 1.png" alt="Your avatar" class="user-avatar">
+                <div class="input-wrapper">
+                    <textarea placeholder="Add a comment..." class="comment-input" [(ngModel)]="newComment">
+                    </textarea>
+                    <div class="comment-actions">
+                        <button class="cancel-btn">Cancel</button>
+                        <button class="submit-btn" [class.disabled]="!newComment">
+                            Comment
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

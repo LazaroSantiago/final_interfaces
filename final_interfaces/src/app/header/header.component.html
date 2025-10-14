@@ -1,5 +1,4 @@
 <header>
-
     <div class="logo" (click)="navigateToHome()">
         <img src="S5.svg" alt="S5">
     </div>
@@ -9,7 +8,6 @@
         <span><i class="fas fa-search fa-lg" (click)="navigateToSearch()"></i></span>
     </div>
 
-    <!-- if user is logged in, show this -->
     <div class="user-info">
         @if (isLoggedIn) {
         <button class="explore-premium" (click)="navigateToPremium()">
