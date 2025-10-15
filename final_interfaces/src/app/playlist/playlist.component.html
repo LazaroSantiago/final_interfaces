@@ -1,5 +1,22 @@
 <app-profile-header [title]="'Jpop Mix'" [artist]="'Pekoe'" [imgSrc]="'jpop.png'"></app-profile-header>
 
+<div class="playlist-controls">
+    <div class="playlist-info">
+        <span class="play-count">
+            <i class="fas fa-play"></i>
+            {{ playCount }} plays
+        </span>
+    </div>
+    <div class="playlist-actions">
+        <div class="action-item" [matTooltip]="'Edit playlist'" matTooltipPosition="below">
+            <i class="fas fa-edit"></i>
+        </div>
+        <div class="action-item" [matTooltip]="'Delete playlist'" matTooltipPosition="below">
+            <i class="fas fa-trash"></i>
+        </div>
+    </div>
+</div>
+
 <div class="playlist-container">
     <table class="playlist-table">
         <thead>

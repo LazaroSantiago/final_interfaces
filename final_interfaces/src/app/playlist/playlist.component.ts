@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ProfileHeaderComponent } from "../profile-header/profile-header.component";
 import { FormsModule } from '@angular/forms';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 interface Track {
   id: number;
@@ -22,7 +23,7 @@ interface Comment {
 
 @Component({
   selector: 'app-playlist',
-  imports: [ProfileHeaderComponent, FormsModule],
+  imports: [ProfileHeaderComponent, FormsModule, MatTooltipModule],
   templateUrl: './playlist.component.html',
   styleUrl: './playlist.component.scss'
 })
@@ -119,6 +120,8 @@ export class PlaylistComponent {
       duration: '5:16'
     }
   ];
+
+  playCount: number = 1247;
 
   comments: Comment[] = [
     {
