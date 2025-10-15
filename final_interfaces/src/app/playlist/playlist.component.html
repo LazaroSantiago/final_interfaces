@@ -56,41 +56,6 @@
         </tbody>
     </table>
 
-    <!-- Comment Section -->
-    <div class="comment-section">
-        <h3 class="comment-title">Comments</h3>
-
-        <!-- Existing Comments -->
-        <div class="comments-list">
-            @for (comment of comments; track comment.id) {
-            <div class="comment">
-                <div class="comment-header">
-                    <img [src]="'Ellipse 1.png'" [alt]="comment.author" class="comment-avatar">
-                    <div class="comment-author-info">
-                        <span class="comment-author">{{ comment.author }}</span>
-                        <span class="comment-date">{{ comment.date }}</span>
-                    </div>
-                </div>
-                <p class="comment-text">{{ comment.text }}</p>
-            </div>
-            }
-        </div>
-
-        <!-- Add Comment Form -->
-        <div class="add-comment">
-            <div class="comment-input-container">
-                <img src="Ellipse 1.png" alt="Your avatar" class="user-avatar">
-                <div class="input-wrapper">
-                    <textarea placeholder="Add a comment..." class="comment-input" [(ngModel)]="newComment">
-                    </textarea>
-                    <div class="comment-actions">
-                        <button class="cancel-btn">Cancel</button>
-                        <button class="submit-btn" [class.disabled]="!newComment">
-                            Comment
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <app-comment-section [comments]="comments" (commentAdded)="onCommentAdded($event)">
+    </app-comment-section>
 </div>

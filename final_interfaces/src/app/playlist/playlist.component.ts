@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ProfileHeaderComponent } from "../profile-header/profile-header.component";
 import { FormsModule } from '@angular/forms';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { CommentSectionComponent, Comment } from "../comment-section/comment-section.component"; // Add this import
 
 interface Track {
   id: number;
@@ -13,17 +14,9 @@ interface Track {
   duration: string;
 }
 
-interface Comment {
-  id: number;
-  author: string;
-  text: string;
-  date: string;
-  likes: number;
-}
-
 @Component({
   selector: 'app-playlist',
-  imports: [ProfileHeaderComponent, FormsModule, MatTooltipModule],
+  imports: [ProfileHeaderComponent, FormsModule, MatTooltipModule, CommentSectionComponent], // Add CommentSectionComponent
   templateUrl: './playlist.component.html',
   styleUrl: './playlist.component.scss'
 })
@@ -147,28 +140,15 @@ export class PlaylistComponent {
     }
   ];
 
-  newComment: string = '';
+  onCommentAdded(commentText: string): void {
+    const newComment: Comment = {
+      id: this.comments.length + 1,
+      author: 'Current User',
+      text: commentText,
+      date: 'Just now',
+      likes: 0
+    };
 
-  addComment(event?: Event) {
-    if (event) {
-      event.preventDefault();
-    }
-
-    if (this.newComment.trim()) {
-      const newComment: Comment = {
-        id: this.comments.length + 1,
-        author: 'Current User',
-        text: this.newComment,
-        date: 'Just now',
-        likes: 0
-      };
-
-      this.comments.unshift(newComment);
-      this.newComment = '';
-    }
-  }
-
-  clearComment() {
-    this.newComment = '';
+    this.comments.unshift(newComment);
   }
 }
