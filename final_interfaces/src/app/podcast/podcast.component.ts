@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
 import { ProfileHeaderComponent } from "../profile-header/profile-header.component";
+import { CommentSectionComponent } from "../comment-section/comment-section.component"; // Add this import
+import { Comment } from "../comment";
 
 @Component({
   selector: 'app-podcast',
-  imports: [ProfileHeaderComponent],
+  imports: [ProfileHeaderComponent, CommentSectionComponent],
   templateUrl: './podcast.component.html',
   styleUrl: './podcast.component.scss'
 })
@@ -35,4 +37,28 @@ export class PodcastComponent {
         friend: bit.ly/TrashTastePodcast
         Learn more about your ad choices.`
   };
+
+  comments: Comment[] = [
+    {
+      id: 1,
+      author: 'CoffeeAndPodcasts',
+      text: 'This episode had me literally laughing out loud during my commute! People in traffic probably thought I was crazy. Can\'t wait for the next one! 😂',
+      date: '2 days ago',
+      likes: 24
+    },
+    {
+      id: 2,
+      author: 'AudioTechNerd',
+      text: 'The audio mixing in this episode was exceptional! The background music levels were perfect - present enough to set the mood but never overwhelming the dialogue.',
+      date: '1 day ago',
+      likes: 15
+    },
+    {
+      id: 3,
+      author: 'LongTimeListener',
+      text: 'As someone who\'s been following since episode 1, it\'s incredible to see how much the show has evolved. The production quality and depth of research just keeps getting better!',
+      date: '5 hours ago',
+      likes: 8
+    }
+  ];
 }

@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { ProfileHeaderComponent } from "../profile-header/profile-header.component";
 import { FormsModule } from '@angular/forms';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { CommentSectionComponent, Comment } from "../comment-section/comment-section.component"; // Add this import
+import { CommentSectionComponent } from "../comment-section/comment-section.component"; // Add this import
+import { Comment } from "../comment";
 
 interface Track {
   id: number;
@@ -16,7 +17,7 @@ interface Track {
 
 @Component({
   selector: 'app-playlist',
-  imports: [ProfileHeaderComponent, FormsModule, MatTooltipModule, CommentSectionComponent], // Add CommentSectionComponent
+  imports: [ProfileHeaderComponent, FormsModule, MatTooltipModule, CommentSectionComponent],
   templateUrl: './playlist.component.html',
   styleUrl: './playlist.component.scss'
 })
@@ -139,16 +140,4 @@ export class PlaylistComponent {
       likes: 8
     }
   ];
-
-  onCommentAdded(commentText: string): void {
-    const newComment: Comment = {
-      id: this.comments.length + 1,
-      author: 'Current User',
-      text: commentText,
-      date: 'Just now',
-      likes: 0
-    };
-
-    this.comments.unshift(newComment);
-  }
 }
