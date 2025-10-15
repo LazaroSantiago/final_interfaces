@@ -1,0 +1,52 @@
+<main class="search-results-container">
+    <div class="search-header">
+        <h1>Search Results</h1>
+        <p class="results-count">{{ results.length }} results found for "jpop"</p>
+    </div>
+
+    <div class="results-table-container">
+        <table class="results-table">
+            <thead>
+                <tr>
+                    <th class="title-col">Title</th>
+                    <th class="artist-col">Artist</th>
+                    <th class="rating-col">Rating</th>
+                    <th class="type-col">Type</th>
+                    <th class="favorite-col">Favorite</th>
+                    <th class="time-col">Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (item of results; track item.id) {
+                <tr class="result-row" (click)="navigateToItem(item)">
+                    <td class="title-col">
+                        <div class="item-info">
+                            <div class="item-details">
+                                <span class="item-title">{{ item.title }}</span>
+                                <span class="item-album" *ngIf="item.album">{{ item.album }}</span>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="artist-col">{{ item.artist }}</td>
+                    <td class="rating-col">
+                        <div class="stars">
+                            @for (star of [1,2,3,4,5]; track star) {
+                            <i class="fas fa-star" [class.active]="star <= item.rating"></i>
+                            }
+                        </div>
+                    </td>
+                    <td class="type-col">
+                        <span class="type-badge" [class]="item.type">{{ item.type }}</span>
+                    </td>
+                    <td class="favorite-col">
+                        <i [ngClass]="item.isFavorite ? 'fas fa-heart' : 'far fa-heart'" class="favorite-icon"
+                            (click)="toggleFavorite(item, $event)" [class.favorited]="item.isFavorite">
+                        </i>
+                    </td>
+                    <td class="time-col">{{ item.duration }}</td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</main>

@@ -38,7 +38,7 @@
         @if (isShareable) {
         <i class="fas fa-xl fa-share-alt"></i>
         } @else {
-        <i [ngClass]="(heartHovered || heartActive) ? 'fas fa-heart fa-lg heart-icon' : 'far fa-heart fa-lg heart-icon'"
+        <i class="fa-heart fa-lg heart-icon" [class.fas]="heartActive" [class.far]="!heartActive"
             (mouseenter)="heartHovered = true" (mouseleave)="heartHovered = false"
             (click)="heartActive = !heartActive"></i>
         }

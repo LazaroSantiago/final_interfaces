@@ -1,4 +1,3 @@
-import { NgClass } from '@angular/common';
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -6,7 +5,7 @@ import { Router } from '@angular/router';
   selector: 'app-card',
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss'],
-  imports: [NgClass]
+  imports: []
 })
 export class CardComponent {
   @Input() coverart: string = '';
@@ -24,7 +23,6 @@ export class CardComponent {
   constructor(private router: Router) { }
 
   heartHovered = false;
-  // heartActive = false;
   hoverRating = 0;
 
   setRating(stars: number) {

@@ -6,6 +6,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { SongDetailComponent } from './song-detail/song-detail.component';
 import { PlaylistComponent } from './playlist/playlist.component';
 import { PodcastComponent } from './podcast/podcast.component';
+import { SearchResultsComponent } from './search-results/search-results.component';
 
 export const routes: Routes = [
     { path: '', component: LandingComponent },
@@ -16,4 +17,5 @@ export const routes: Routes = [
     { path: 'song', component: SongDetailComponent },
     { path: 'playlist', component: PlaylistComponent },
     { path: 'podcast', component: PodcastComponent },
+    { path: 'search', component: SearchResultsComponent }
 ];

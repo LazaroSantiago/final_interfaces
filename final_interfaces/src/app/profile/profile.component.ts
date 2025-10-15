@@ -11,7 +11,7 @@ import { ProfileHeaderComponent } from "../profile-header/profile-header.compone
 })
 export class ProfileComponent {
   row1: Track[] = [
-    { title: 'J-pop Mix', artist: 'Pekoe', collection: 'Playlist', coverart: 'jpop.png', year: 2020, rating: 2, isShareable: true },
+    { title: 'J-pop Mix', artist: 'Pekoe', collection: 'Playlist', coverart: 'jpop.png', year: 2020, rating: 2, isShareable: true, isPlaylist: true },
   ]
 
   row2: Track[] = [
