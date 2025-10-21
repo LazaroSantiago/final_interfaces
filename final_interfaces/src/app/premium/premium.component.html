@@ -1,7 +1,10 @@
 <main>
-    <app-premium-card [text]="'1 Premium Account'" [buttonText]="'Get Premium Indivual'"></app-premium-card>
-    <app-premium-card [text]="'2 Premium Account'" [buttonText]="'Get Premium Duo'" [price]="5000"></app-premium-card>
-    <app-premium-card [text]="'6 Premium Account'" [buttonText]="'Get Premium Ultra'" [price]="5399"></app-premium-card>
+    <app-premium-card [text]="'1 Premium Account'" [buttonText]="'Get Premium Individual'"
+        [title]="'Individual'"></app-premium-card>
+    <app-premium-card [text]="'2 Premium Account'" [buttonText]="'Get Premium Duo'" [title]="'Duo'"
+        [price]="5000"></app-premium-card>
+    <app-premium-card [text]="'6 Premium Account'" [buttonText]="'Get Premium Ultra'" [title]="'Ultra'"
+        [price]="5399"></app-premium-card>
     <app-premium-card [text]="'6 Premium Account'" [plusUltra]="true" [buttonText]="'Get Premium Plus Ultra'"
-        [price]="6399"></app-premium-card>
+        [title]="'Plus Ultra'" [price]="6399"></app-premium-card>
 </main>

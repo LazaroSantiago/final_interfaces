@@ -8,6 +8,8 @@ import { Component, Input } from '@angular/core';
 })
 export class PremiumCardComponent {
   @Input()
+  title: string = '';
+  @Input()
   text: string = '';
   @Input()
   price: number = 4399;
