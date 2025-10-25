@@ -1,0 +1,64 @@
+@use "../../styles.scss" as *;
+.stars {
+  display: flex;
+  gap: 2px;
+
+  .fa-star {
+    font-size: 0.8rem;
+    color: rgba($white, 0.3);
+
+    &.active {
+      color: $star;
+    }
+  }
+}
+
+.row {
+  display: flex;
+  gap: 1.5rem;
+
+  button {
+    width: max-content;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+h1 {
+  padding: 1rem;
+  padding-bottom: 0;
+  font-size: 2.5rem;
+  color: $white;
+  margin: 0;
+}
+
+.carousel-section {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 0 2rem;
+  // max-width: 75%;
+}
+
+.carousel-container {
+  white-space: nowrap;
+  position: relative;
+  overflow-x: auto;
+  padding: 1rem 0;
+  flex: 1;
+
+  // Hide scrollbar but keep functionality
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.row {
+  display: flex;
+  gap: 1.5rem;
+  padding: 0 1rem;
+  width: max-content;
+  transition: scroll-behavior 0.3s ease;
+}

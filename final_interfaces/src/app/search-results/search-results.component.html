@@ -2,7 +2,16 @@
     <div class="search-header">
         <h1>Search Results</h1>
         <p class="results-count">{{ results.length }} results found for "jpop"</p>
+
+        <button class="filter-toggle-btn" (click)="toggleFilters()">
+            <i class="fas fa-filter"></i>
+            {{ showFilters ? 'Hide Filters' : 'Show Filters' }}
+        </button>
     </div>
+
+    @if (showFilters) {
+    <app-filter></app-filter>
+    }
 
     <div class="results-table-container">
         <table class="results-table">
@@ -10,6 +19,7 @@
                 <tr>
                     <th class="title-col">Title</th>
                     <th class="artist-col">Artist</th>
+                    <th class="genre-col">Genre</th>
                     <th class="rating-col">Rating</th>
                     <th class="type-col">Type</th>
                     <th class="favorite-col">Favorite</th>
@@ -28,6 +38,7 @@
                         </div>
                     </td>
                     <td class="artist-col">{{ item.artist }}</td>
+                    <td class="genre-col">{{ item.genre }}</td>
                     <td class="rating-col">
                         <div class="stars">
                             @for (star of [1,2,3,4,5]; track star) {
