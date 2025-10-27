@@ -66,11 +66,20 @@ export class CarrouselComponent {
     const scrollWidth = container.scrollWidth;
     const clientWidth = container.clientWidth;
 
+    // First check if scrolling is even needed (content fits in container)
+    const canScroll = scrollWidth > clientWidth;
+
+    if (!canScroll) {
+      // No overflow - hide both arrows
+      this.isAtStart = true;
+      this.isAtEnd = true;
+      return;
+    }
+
     // Check if at start (with a small buffer for rounding errors)
     this.isAtStart = scrollLeft <= 10;
 
     // Check if at end (with a small buffer for rounding errors)
     this.isAtEnd = scrollLeft + clientWidth >= scrollWidth - 10;
   }
-
 }
